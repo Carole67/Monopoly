@@ -3,45 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Monopoly.Model.Component.Board
 {
-    /// <summary>
-    /// Représente une case : terrain
-    /// </summary>
+    [Serializable]
+    [XmlRoot("Land")]
     public class Land : Property
     {
-        private LandGroup _landGroup;
-        private List<int> _rantalList;
+        [XmlElement("LandGroup")]
+        public LandGroup LandGroup { get; set; }
+        [XmlArray("RantalList")]
+        [XmlArrayItem("Rantal")]
+        public List<int> RantalList { get; set; }
 
         /// <summary>
-        /// Création d'un terrain
+        /// Création d'une case "Terrain"
         /// </summary>
-        /// <param name="title">Titre du terrain</param>
-        /// <param name="price">Prix d'achat</param>
-        /// <param name="landGroup">Groupe du terrain</param>
-        public Land(string title, int id, int purchasePrice, int mortgagePrice, int status, LandGroup landGroup, List<int> rantalList) : base(title, id, purchasePrice, mortgagePrice, status)
-        {
-            this._landGroup = landGroup;
-            this._rantalList = rantalList;
-        }
-
-        /// <summary>
-        /// Groupe du terrain
-        /// </summary>
-        public LandGroup Group
-        {
-            get { return _landGroup; }
-            set { _landGroup = value; }
-        }
-
-        /// <summary>
-        /// Liste des loyer
-        /// </summary>
-        public List<int> RantalList
-        {
-            get { return _rantalList; }
-            set { _rantalList = value; }
-        }
+        public Land() { }
     }
 }

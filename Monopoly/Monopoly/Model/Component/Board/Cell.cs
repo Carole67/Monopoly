@@ -7,41 +7,26 @@ using System.Xml.Serialization;
 
 namespace Monopoly.Model.Component.Board
 {
-    /// <summary>
-    /// Réprésente une case du plateau de jeux
-    /// </summary>
+    [Serializable]
+    [XmlRoot("Cell")]
+    [XmlInclude(typeof(DrawCard))]
+    [XmlInclude(typeof(GoToJail))]
+    [XmlInclude(typeof(Jail))]
+    [XmlInclude(typeof(Property))]
+    [XmlInclude(typeof(Parking))]
+    [XmlInclude(typeof(StartPoint))]
+    [XmlInclude(typeof(Tax))]
     public class Cell
     {
-        private string _title;
-        private int _id;        
+        [XmlElement("Id")]
+        public int Id { get; set; }
+        [XmlElement("Title")]
+        public string Title { get; set; }
+                
 
         /// <summary>
-        /// Crée une instance de la classe : Square
+        /// Création d'une cell
         /// </summary>
-        /// <param name="title">Titre de la case</param>
-        /// <param name="id">Identifiant</param>
-        public Cell(string title, int id)
-        {
-            this._title = title;
-            _id = id;
-        }
-
-        /// <summary>
-        /// Titre de la case
-        /// </summary>
-        public string Title
-        {
-            get { return _title; }
-            set { _title = value; }
-        }
-
-        /// <summary>
-        /// Identifiant de la case
-        /// </summary>
-        public int Id
-        {
-            get { return _id; }
-            set { _id = value; }
-        }
+        public Cell() { }
     }
 }

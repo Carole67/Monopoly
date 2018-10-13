@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Monopoly.Handler.Entity
 {
-    class Menu
+    public class Menu
     {
     }
 }

@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ChanceCard>
+  <Id>1</Id>
+  <Title>CHANCE</Title>
+  <Description>Vous êtes imposé pour les réparations de voirie à raison de : 40€ par maison et 115€ par hôtel.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>1</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>2</Id>
+  <Title>CHANCE</Title>
+  <Description>Amende pour ivresse : 20 €.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>1</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>3</Id>
+  <Title>CHANCE</Title>
+  <Description>Payer pour frais de scolarité 150 €.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>1</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>4</Id>
+  <Title>CHANCE</Title>
+  <Description>Allez en prison. Avancez tout droit en prison. Ne pas passer par la case Départ. Ne recevez pas 200€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>4</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>5</Id>
+  <Title>CHANCE</Title>
+  <Description>Rendez-vous à la Rue de la Paix.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>0</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>6</Id>
+  <Title>CHANCE</Title>
+  <Description>Avancez jusqu'à la case Départ.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>5</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>7</Id>
+  <Title>CHANCE</Title>
+  <Description>Faites des réparations dans toutes vos maisons. Versez pour chaque maison 25€. Versez pour chaque hôtel 100.€</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>1</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>8</Id>
+  <Title>CHANCE</Title>
+  <Description>Amende pour excès de vitesse : 15 €.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>1</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>9</Id>
+  <Title>CHANCE</Title>
+  <Description>La banque vous verse un dividende de 50€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>3</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>10</Id>
+  <Title>CHANCE</Title>
+  <Description>Vous avez gagné le prix de mots croisés. Recevez 100€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>3</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>11</Id>
+  <Title>CHANCE</Title>
+  <Description>Votre immeuble et votre prêt rapportent. Vous devez toucher 150€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>3</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>12</Id>
+  <Title>CHANCE</Title>
+  <Description>Rendez-vous à l'Avenue Henri-martin. Si vous passez par la case Départ recevez 200€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>5</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>13</Id>
+  <Title>CHANCE</Title>
+  <Description>Allez à la gare de Lyon. Si vous passez par la case Départ recevez 200€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>5</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>14</Id>
+  <Title>CHANCE</Title>
+  <Description>Avancez au Boulevard de la Villette. Si vous passez par la case Départ recevez 200€.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>5</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>15</Id>
+  <Title>CHANCE</Title>
+  <Description>Reculez de trois cases.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>0</EventType>
+</ChanceCard>
+<ChanceCard>
+  <Id>16</Id>
+  <Title>CHANCE</Title>
+  <Description>Vous êtes libéré de prison. Cette carte peut être conservée jusqu'à ce qu'elle soit utilisée ou vendue.</Description>
+  <Icon>chemin de l'icon</Icon>
+  <EventType>2</EventType>
+</ChanceCard>

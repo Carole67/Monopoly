@@ -13,7 +13,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Monopoly.Handler;
 using Monopoly.Model.Component.Board;
+using Monopoly.Model.Component.Entity;
 
 namespace Monopoly
 {
@@ -22,33 +24,16 @@ namespace Monopoly
     /// </summary>
     public partial class MainWindow : Window
     {
-        Board Board;
-        Label monLabel;
         public MainWindow()
         {
             InitializeComponent();
-            this.Board = new Board("Monopoly Board", new ObservableCollection<Square> { new Square("AVENU DE BRETEUIL"), new Square("A VENUE FOCH") });
-            this.AddChild(Board);
+            Game Monopoly = Game.Instance;
+            Console.WriteLine("...............DEBUT...............");
             
-        }
-        
-        /// <summary>
-        ///  Génération du plateau de jeux
-        /// </summary>
-        public void generation(string path)
-        {
-            this.Title = "Monopoly Game";
-            //DockPanel MainDockPanelLayout = new DockPanel();
-            //DockPanel.SetDock(new Plateau("", null), Dock.Right);
+            Console.WriteLine("...............FIN...............");
 
-            //this.Content = MainDockPanelLayout;
-
-            //XmlSerializer xs = new XmlSerializer(typeof(Plateau));
-            //using (StreamReader sr = new StreamReader(path))
-            //{
-            //    xs.Serialize(sr, Plateau);
-            //}
-            
         }
+
+
     }
 }

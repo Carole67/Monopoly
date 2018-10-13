@@ -3,32 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace Monopoly.Model.Component.Board
 {
     [Serializable]
+    [XmlRoot("GoToJail")]
     public class GoToJail : Cell
     {
-        private string _logo;
+        [XmlElement("Logo")]
+        public string Logo { get; set; }
 
         /// <summary>
-        /// Création de la case : aller en prison
+        /// Création d'un case "Allez en prison"
         /// </summary>
-        /// <param name="title">titre</param>
-        /// <param name="id">id</param>
-        /// <param name="logo">logo</param>
-        public GoToJail(string title, int id, string logo) : base(title, id)
-        {
-            _logo = logo;
-        }
-
-        /// <summary>
-        /// Logo du policier
-        /// </summary>
-        public string Logo
-        {
-            get { return _logo; }
-            set { _logo = value; }
-        }
+        public GoToJail() { }
     }
 }

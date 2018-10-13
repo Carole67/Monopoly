@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Monopoly.Model.Component.Entity;
 namespace Monopoly.Model.Component.Card
 {
+    [Serializable]
+    [XmlRoot("CommunityCard")]
     public class CommunityCard : Entity.Card
     {
-
         /// <summary>
-        /// Création d'une carte caisse de communoté
+        /// Cration d'une carte communauté
         /// </summary>
-        /// <param name="id">identifiant</param>
-        /// <param name="title">Titre/param>
-        /// <param name="description">Description</param>
-        /// <param name="icon">Icon</param>
-        public CommunityCard(int id, string title, string description, string icon, int eventType) : base(id, title, description, icon, eventType){}
+        public CommunityCard() { }
 
     }
 }

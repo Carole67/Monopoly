@@ -10,28 +10,26 @@ namespace Monopoly.Handler
     /// <summary>
     /// Jeux Monopoly
     /// </summary>
-    class Game
+    public class Game
     {
         public static Game _instance = null;
         private HandlerPlayer _handlerPlayer;
         private BoardHandler _boardHandler;
         private CardHandler _cardHandler;
         private Bank _bank;
-        private int _round;
-
-        
+        private int _round;       
         
 
        
         /// <summary>
         /// Crée l'instance du jeux Monopoly
         /// </summary>
-        public Game()
+        private Game()
         {            
             this._handlerPlayer = HandlerPlayer.Instance;
             this._boardHandler = BoardHandler.Instance;
             this._cardHandler = CardHandler.Instance;
-            this._bank = Bank.Instance;            
+            this._bank = Bank.Instance;
         }
 
 
@@ -64,6 +62,21 @@ namespace Monopoly.Handler
         public Bank Bank
         {
             get { return _bank; }
+        }
+
+        /// <summary>
+        /// Gestionnaire de carte
+        /// </summary>
+        public CardHandler CardHandler
+        {
+            get { return _cardHandler; }
+        }
+        /// <summary>
+        /// Gestionnaire du plateau
+        /// </summary>
+        public BoardHandler BoardHandler
+        {
+            get { return _boardHandler; }
         }
 
         /// <summary>

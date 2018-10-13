@@ -7,28 +7,16 @@ using System.Xml.Serialization;
 
 namespace Monopoly.Model.Component.Board
 {
+    [Serializable]
+    [XmlRoot("Parking")]
     public class Parking : Cell
     {
-        private string _logo;
+        [XmlElement("Logo")]
+        public string Logo { get; set; }
 
         /// <summary>
-        /// Création du parking
+        /// Création d'une case "Parking"
         /// </summary>
-        /// <param name="title">titre</param>
-        /// <param name="id">id</param>
-        /// <param name="logo">logo</param>
-        public Parking(string title, int id, string logo) : base(title, id)
-        {
-            _logo = logo;
-        }
-
-        /// <summary>
-        /// Logo du parking
-        /// </summary>
-        public string Logo
-        {
-            get { return _logo; }
-            set { _logo = value; }
-        }
+        public Parking() { }
     }
 }

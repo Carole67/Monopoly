@@ -55,12 +55,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Handler\Config.cs" />
     <Compile Include="Handler\Entity\Bank.cs" />
     <Compile Include="Handler\Entity\BoardHandler.cs" />
     <Compile Include="Handler\Entity\CardHandler.cs" />
     <Compile Include="Handler\Entity\HandlerPlayer.cs" />
     <Compile Include="Handler\Entity\Menu.cs" />
     <Compile Include="Handler\Game.cs" />
+    <Compile Include="Handler\Service\XmlDataAccess.cs" />
     <Compile Include="Model\Component\Board\DrawCard.cs" />
     <Compile Include="Model\Component\Board\GoToJail.cs" />
     <Compile Include="Model\Component\Board\Jail.cs" />
@@ -73,15 +75,6 @@
     <Compile Include="Model\Component\Entity\Card.cs" />
     <Compile Include="Model\Component\Entity\Player.cs" />
     <Compile Include="Model\Component\Player\Pawn.cs" />
-    <Compile Include="View\Component\Board\BoardView.xaml.cs">
-      <DependentUpon>BoardView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Component\Board\CardsView.xaml.cs">
-      <DependentUpon>CardsView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Component\MainView.xaml.cs">
-      <DependentUpon>MainView.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -94,18 +87,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\Component\Board\BoardView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Component\Board\CardsView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Component\MainView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\Component\Board\Cell.cs" />
@@ -140,7 +121,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Handler\Service\" />
+    <Resource Include="Model\Component\XmlData\XMLBank.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\Component\XmlData\XMLChanceCard.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\Component\XmlData\XMLCommunityCard.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="View\Component\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Model\Component\XmlData\XMLBoardCell.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

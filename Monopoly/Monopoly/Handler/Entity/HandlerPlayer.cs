@@ -17,8 +17,10 @@ namespace Monopoly.Handler
         /// <summary>
         /// Constructeur de la classe : HandlerPlayer
         /// </summary>
-        public HandlerPlayer() { }
-
+        private HandlerPlayer()
+        {
+            _players = new List<Player>();
+        }
 
         /// <summary>
         /// Récupère l'unique instance de la classe : HandlerPlayer
@@ -27,7 +29,7 @@ namespace Monopoly.Handler
         {
             get
             {
-                if (Instance == null)
+                if (_instance == null)
                 {
                     _instance = new HandlerPlayer();
                 }
@@ -35,6 +37,10 @@ namespace Monopoly.Handler
             }
         }
 
+        public void AddPlayer(Player pPlayer)
+        {
+            _players.Add(pPlayer);
+        }
         public Player GetCurrentPlayer()
         {
             Predicate<Player> findPlayer = (Player p) => { return p.Status == Player.PLAYING; };

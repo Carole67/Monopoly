@@ -1,50 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 using Monopoly.Model.Component.Board;
 
 namespace Monopoly.Model.Component.Entity
 {
+    [Serializable]
+    [XmlRoot("Board")]
     public class Board
     {
-        private static Board _instance = null;
-        private List<Cell> _cells;
+        [XmlElement("Cell")]
+        public List<Cell> ListCell { get; set; }
 
         /// <summary>
         /// Création du plateau
         /// </summary>
-        /// <param name="cells"></param>
-        private Board()
+        public Board()
         {
-            this._cells = new List<Cell>();
+            this.ListCell = new List<Cell>();
         }
-
-        /// <summary>
-        /// Instance du plateau
-        /// </summary>
-        public static Board Instance
-        {
-            get
-            {
-                if(_instance == null)
-                {
-                    _instance = new Board();
-                }
-                return _instance;
-            }
-        }
-
-        /// <summary>
-        /// Liste des case présent sur le plateau
-        /// </summary>
-        public List<Cell> Cells
-        {
-            get { return _cells; }
-            set { _cells = value; }
-        }
-
-
     }
 }

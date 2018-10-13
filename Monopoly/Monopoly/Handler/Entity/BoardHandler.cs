@@ -7,17 +7,17 @@ using Monopoly.Model.Component.Entity;
 
 namespace Monopoly.Handler.Entity
 {
-    class BoardHandler
+    public class BoardHandler
     {
         private static BoardHandler _instance = null;
-        private static Board _board { get; set; }
+        private Board _board;
 
         /// <summary>
         /// Création du gestionaire du Plateau
         /// </summary>
         private BoardHandler()
         {
-            _board = Board.Instance;
+            this.Board = Handler.Service.XmlDataAccess.XMLDeserializeObject<Board>(Handler.Config.filePath_XmlBoard);
         }
 
         /// <summary>
@@ -35,5 +35,13 @@ namespace Monopoly.Handler.Entity
             }
         }
 
+        /// <summary>
+        /// Instance du plateau
+        /// </summary>
+        public Board Board
+        {
+            get { return this._board; }
+            set { this._board = value; }
+        }
     }
 }

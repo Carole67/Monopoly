@@ -34,6 +34,7 @@ namespace Monopoly.Model.Component.Entity
             _lastName = lastName;
             _pawn = pawn;
             _cards = new List<Card>();
+            _properties = new List<Property>();
         }
 
         /// <summary>
@@ -72,6 +73,9 @@ namespace Monopoly.Model.Component.Entity
             set { _status = value; }
         }
 
+        /// <summary>
+        /// Status : en prison
+        /// </summary>
         public bool InJail
         {
             get { return _inJail; }
@@ -137,7 +141,7 @@ namespace Monopoly.Model.Component.Entity
         /// <param name="property">Propriété à supprimer</param>
         public void RemoveProperty(Property property)
         {
-            Predicate<Property> findProperty = (Property p) => { return p.Position == property.Position; };
+            Predicate<Property> findProperty = (Property p) => { return p.Id == property.Id; };
             _properties.RemoveAll(findProperty);
         }
 
