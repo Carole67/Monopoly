@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Monopoly.Handler;
 using Monopoly.Model.Component.Board;
 using Monopoly.Model.Component.Entity;
+using Monopoly.View.Component;
 
 namespace Monopoly
 {
@@ -34,6 +35,33 @@ namespace Monopoly
 
         }
 
+        private void btnPlayAlone_Click(object sender, RoutedEventArgs e)
+        {
+            BoardWindow board = new BoardWindow();
+            this.Visibility = Visibility.Hidden;
+            board.Show();
+        }
+
+        private void btnCustomize_Click(object sender, RoutedEventArgs e)
+        {
+            CustomizeWindow custom = new CustomizeWindow();
+            this.Visibility = Visibility.Hidden;
+            custom.Show();
+        }
+
+        private void btnNetworkPlay_Click(object sender, RoutedEventArgs e)
+        {
+            BoardWindow board = new BoardWindow();
+            this.Visibility = Visibility.Hidden;
+            board.Show();
+        }
+
+        private void btnRules_Click(object sender, RoutedEventArgs e)
+        {
+            GameRules rules = new GameRules();
+            this.Visibility = Visibility.Hidden;
+            rules.Show();
+        }
 
     }
 }

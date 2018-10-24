@@ -1,0 +1,83 @@
+﻿<Window x:Class="Monopoly.View.Component.BoardWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Monopoly.View.Component"
+        mc:Ignorable="d"
+        Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" 
+    Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"
+        Title="BoardWindow" WindowStyle="None" ResizeMode="NoResize"
+    WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="White">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Name="Board" Margin="2,2,0,2" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="8*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="9*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <Grid Grid.Column="1">
+            <Button x:Name="btnLand" Content="Acheter le terrain"  HorizontalAlignment="Left" Height="50" Margin="29,415,0,0" VerticalAlignment="Top" Width="110" TextOptions.TextFormattingMode="Display" TextOptions.TextHintingMode="Animated" Background="{x:Null}"/>
+            <Button x:Name="btnRent" Content="Loyer" HorizontalAlignment="Left" Height="50" Margin="394,415,0,0" VerticalAlignment="Top" Width="70" Background="White"/>
+            <Button x:Name="btnHouse" Content="Acheter une &#xD;&#xA;maison" HorizontalAlignment="Left" Height="50" Margin="159,415,0,0" VerticalAlignment="Top" Width="115" Background="{x:Null}" BorderBrush="Black"/>
+            <Button x:Name="btnMotel" Content="Acheter un &#xD;&#xA;hôtel" HorizontalAlignment="Left" Height="50" Margin="304,415,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.5,0.5" Background="White"/>
+
+            <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="35" Margin="44,365,0,0" TextWrapping="Wrap" Text="Mes propriétés :" VerticalAlignment="Top" Width="385" Foreground="Black" FontSize="16"/>
+            <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Height="30" Margin="44,10,0,0" TextWrapping="Wrap" Text="Informations sur le terrain :" VerticalAlignment="Top" Width="230" Foreground="Black"/>
+            <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Height="20" Margin="64,120,0,0" TextWrapping="Wrap" Width="75" Foreground="Black" VerticalAlignment="Top"><Run Text="Propriétaire : "/></TextBlock>
+            <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Height="20" Margin="64,140,0,0" TextWrapping="Wrap" Text="Prix d'achat :" VerticalAlignment="Top" Width="75" Foreground="Black"/>
+
+
+
+            <Grid HorizontalAlignment="Left" Height="295" Margin="54,45,0,0" VerticalAlignment="Top" Width="205">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="13*"/>
+                    <RowDefinition Height="40*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Height="20" Margin="10,195,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Valeur hypothécaire :" VerticalAlignment="Top" Width="120" Foreground="Black"/>
+                <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Height="20" Margin="10,50,0,0" Grid.Row="1" TextWrapping="Wrap" Text="Loyers :" VerticalAlignment="Top" Width="75" Foreground="Black"/>
+                <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Height="20" Margin="20,70,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Terrain nu : " VerticalAlignment="Top" Width="90" Foreground="Black"/>
+                <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Height="20" Margin="20,90,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Avec 1 maison :" VerticalAlignment="Top" Width="100" Foreground="Black"/>
+                <TextBlock x:Name="textBlock13" HorizontalAlignment="Left" Height="20" Margin="20,110,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Avec 2 maisons :" VerticalAlignment="Top" Width="100" Foreground="Black"/>
+                <TextBlock x:Name="textBlock14" HorizontalAlignment="Left" Height="20" Margin="20,130,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Avec 3 maisons :" VerticalAlignment="Top" Width="100" Foreground="Black"/>
+                <TextBlock x:Name="textBlock15" HorizontalAlignment="Left" Height="20" Margin="20,150,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Avec 4 maisons :" VerticalAlignment="Top" Width="100" Foreground="Black"/>
+                <TextBlock x:Name="textBlock16" HorizontalAlignment="Left" Height="20" Margin="20,170,0,0" Grid.Row="1" TextWrapping="Wrap" Text="- Avec hôtel :" VerticalAlignment="Top" Width="100" Foreground="Black"/>
+                <Border BorderThickness="2" BorderBrush="Black" Background="Blue"/>
+                <Border BorderThickness="2" BorderBrush="Black" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            </Grid>
+            <Button x:Name="btnBack" Height="30" Margin="595,10,45,0" VerticalAlignment="Top" BorderBrush="White" Click="btnBack_Click">
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Image Source="../Pictures/back.png">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="../Pictures/back.png"/>
+                    </Image.OpacityMask>
+                </Image>
+            </Button>
+            <Button x:Name="btnShutDown" HorizontalAlignment="Left" Height="30" Margin="630,0,0,824" VerticalAlignment="Bottom" Width="30" BorderBrush="White" Click="btnShutDown_Click" RenderTransformOrigin="1.5,0.5" >
+                <Button.Background>
+                    <ImageBrush/>
+                </Button.Background>
+                <Image Source="../Pictures/shut_down.png">
+                    <Image.OpacityMask>
+                        <ImageBrush ImageSource="../Pictures/shut_down.png"/>
+                    </Image.OpacityMask>
+                </Image>
+            </Button>
+
+        </Grid>
+    </Grid>
+</Window>
