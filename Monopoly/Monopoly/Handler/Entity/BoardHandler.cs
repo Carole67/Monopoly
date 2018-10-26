@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Monopoly.Model.Component.Entity;
+using Monopoly.Model.Component;
+using Monopoly.Settings;
+using Monopoly.Service.Xml;
 
 namespace Monopoly.Handler.Entity
 {
     public class BoardHandler
     {
+        /// <summary>
+        /// Instance du gestionaire de plateau
+        /// </summary>
         private static BoardHandler _instance = null;
+        
+        /// <summary>
+        /// Plateau
+        /// </summary>
         private Board _board;
 
         /// <summary>
@@ -17,7 +26,7 @@ namespace Monopoly.Handler.Entity
         /// </summary>
         private BoardHandler()
         {
-            this.Board = Handler.Service.XmlDataAccess.XMLDeserializeObject<Board>(Handler.Config.filePath_XmlBoard);
+            this.Board = XmlDataAccess.XMLDeserializeObject<Board>(Config.filePath_XmlBoard);
         }
 
         /// <summary>

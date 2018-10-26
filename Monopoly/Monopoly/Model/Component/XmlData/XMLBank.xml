@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<Bank>
-  <BankAccount>150000</BankAccount>
-  <PlayersAmount>100</PlayersAmount>
-  <NbHouse>30</NbHouse>
-  <NbHotel>15</NbHotel>
-</Bank>

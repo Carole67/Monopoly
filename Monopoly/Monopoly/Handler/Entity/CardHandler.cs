@@ -3,24 +3,41 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Monopoly.Model.Component.Card;
-using Monopoly.Model.Component.Entity;
+using Monopoly.Model.Component;
+using Monopoly.Model.Component.Cards;
+using Monopoly.Model.Component.Cells;
+using Monopoly.Settings;
+using Monopoly.Service.Xml;
 
 namespace Monopoly.Handler.Entity
 {
+    /// <summary>
+    /// Gestionnaire de carte
+    /// </summary>
     public class CardHandler
     {
+        /// <summary>
+        /// Instance du gestionnaire
+        /// </summary>
         private static CardHandler _instance = null;
-        private List<CommunityCard> _listCommunityCard;
-        private List<ChanceCard> _listChanceCard;
+
+        /// <summary>
+        /// Pioche : Carte de communiauté
+        /// </summary>
+        public Deck DeckCommunity { get; private set; }
+        
+        /// <summary>
+        /// Pioche : Carte de chance
+        /// </summary>
+        public Deck DeckChance { get; private set; }
 
         /// <summary>
         /// Cration du gestionnaire de carte
         /// </summary>
         private CardHandler()
         {
-            _listCommunityCard = Service.XmlDataAccess.XMLDeserializeListOf<CommunityCard>(Config.filePath_XmlCommunityCard);
-            _listChanceCard = Service.XmlDataAccess.XMLDeserializeListOf<ChanceCard>(Config.filePath_XmlChanceCard);
+            DeckCommunity = XmlDataAccess.XMLDeserializeObject<Deck>(Config.filePath_XmlCommunityCard);
+            DeckChance = XmlDataAccess.XMLDeserializeObject<Deck>(Config.filePath_XmlChanceCard);
         }
 
         /// <summary>
@@ -37,39 +54,24 @@ namespace Monopoly.Handler.Entity
                 return _instance;
             }
         }
-
         /// <summary>
-        /// Récupère la liste des carte "Chances"
+        /// Récupère la prochaine carte du paquet : Communauté
         /// </summary>
-        public List<ChanceCard> ListChanceCard
+        /// <returns></returns>
+        public Card GetNextCommunityCard()
         {
-            get { return _listChanceCard; }
-        }
-        /// <summary>
-        /// Récupère la liste des carte "Communauté"
-        /// </summary>
-        public List<CommunityCard> ListCommunityCard
-        {
-            get { return _listCommunityCard; }
+            return DeckCommunity.GetNextCard();
         }
 
         /// <summary>
-        /// Affiche la liste des cartes "Chance" et "Communauté"
+        /// Récupère la prochaine carte du paquet : Chance
         /// </summary>
-        public void DisplayCards()
+        /// <returns></returns>
+        public Card GetNextChanceCard()
         {
-            Console.WriteLine("---- CARTE CHANCE ----");
-            foreach (ChanceCard chanceCard in _listChanceCard)
-            {
-                Console.WriteLine(chanceCard.ToString());
-            }
-
-            Console.WriteLine("---- CARTE DE COMMUNAUTE ----");
-            foreach (CommunityCard CommunityCard in _listCommunityCard)
-            {
-                Console.WriteLine(CommunityCard.ToString());
-            }
+            return DeckChance.GetNextCard();
         }
+
         
     }
 }

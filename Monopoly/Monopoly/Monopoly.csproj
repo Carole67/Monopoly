@@ -55,26 +55,41 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Handler\Config.cs" />
-    <Compile Include="Handler\Entity\Bank.cs" />
+    <Compile Include="Model\Component\Bank.cs" />
+    <Compile Include="Model\Component\Board.cs" />
+    <Compile Include="Model\Component\Cells\Cell.cs" />
+    <Compile Include="Model\Component\Cells\DrawCard.cs" />
+    <Compile Include="Model\Component\Cells\GoToJail.cs" />
+    <Compile Include="Model\Component\Cells\Jail.cs" />
+    <Compile Include="Model\Component\Cells\Land.cs" />
+    <Compile Include="Model\Component\Cells\LandGroup.cs" />
+    <Compile Include="Model\Component\Cells\Parking.cs" />
+    <Compile Include="Model\Component\Cells\Property.cs" />
+    <Compile Include="Model\Component\Cells\PublicService.cs" />
+    <Compile Include="Model\Component\Cells\StartPoint.cs" />
+    <Compile Include="Model\Component\Cells\Tax.cs" />
+    <Compile Include="Model\Component\Cells\TrainStation.cs" />
+    <Compile Include="Model\Component\Cards\Card.cs" />
+    <Compile Include="Model\Component\Cards\CardExitToJail.cs" />
+    <Compile Include="Model\Component\Cards\CardGoToJail.cs" />
+    <Compile Include="Model\Component\Cards\CardMoney.cs" />
+    <Compile Include="Model\Component\Cards\CardMoneyAccordingBuilds.cs" />
+    <Compile Include="Model\Component\Cards\CardMoneyOrDrawCard.cs" />
+    <Compile Include="Model\Component\Cards\CardMoneyPlayers.cs" />
+    <Compile Include="Model\Component\Cards\CardMove.cs" />
+    <Compile Include="Model\Component\Cards\CardMoveTo.cs" />
+    <Compile Include="Model\Component\Cards\CardType.cs" />
+    <Compile Include="Model\Component\Deck.cs" />
+    <Compile Include="Model\Component\Game.cs" />
+    <Compile Include="Model\Component\Player.cs" />
+    <Compile Include="Model\Tool\Tools.cs" />
+    <Compile Include="Settings\Config.cs" />
     <Compile Include="Handler\Entity\BoardHandler.cs" />
     <Compile Include="Handler\Entity\CardHandler.cs" />
-    <Compile Include="Handler\Entity\HandlerPlayer.cs" />
-    <Compile Include="Handler\Entity\Menu.cs" />
-    <Compile Include="Handler\Game.cs" />
-    <Compile Include="Handler\Service\XmlDataAccess.cs" />
-    <Compile Include="Model\Component\Board\DrawCard.cs" />
-    <Compile Include="Model\Component\Board\GoToJail.cs" />
-    <Compile Include="Model\Component\Board\Jail.cs" />
-    <Compile Include="Model\Component\Board\Parking.cs" />
-    <Compile Include="Model\Component\Board\StartPoint.cs" />
-    <Compile Include="Model\Component\Board\Tax.cs" />
-    <Compile Include="Model\Component\Card\ChanceCard.cs" />
-    <Compile Include="Model\Component\Card\CommunityCard.cs" />
-    <Compile Include="Model\Component\Entity\Board.cs" />
-    <Compile Include="Model\Component\Entity\Card.cs" />
-    <Compile Include="Model\Component\Entity\Player.cs" />
-    <Compile Include="Model\Component\Player\Pawn.cs" />
+    <Compile Include="Handler\Entity\PlayerHandler.cs" />
+    <Compile Include="Handler\GameManager.cs" />
+    <Compile Include="Service\Xml\XmlDataAccess.cs" />
+    <Compile Include="Model\Component\Pawn.cs" />
     <Compile Include="View\Component\BoardWindow.xaml.cs">
       <DependentUpon>BoardWindow.xaml</DependentUpon>
     </Compile>
@@ -83,9 +98,6 @@
     </Compile>
     <Compile Include="View\Component\GameRules.xaml.cs">
       <DependentUpon>GameRules.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Component\Window1.xaml.cs">
-      <DependentUpon>Window1.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -111,18 +123,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\Component\Window1.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Model\Component\Board\Cell.cs" />
-    <Compile Include="Model\Component\Board\PublicService.cs" />
-    <Compile Include="Model\Component\Board\TrainStation.cs" />
-    <Compile Include="Model\Component\Board\LandGroup.cs" />
-    <Compile Include="Model\Component\Board\Property.cs" />
-    <Compile Include="Model\Component\Board\Land.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -149,15 +151,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Model\Component\XmlData\XMLBank.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Model\Component\XmlData\XMLChanceCard.xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Model\Component\XmlData\XMLCommunityCard.xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="View\Pictures\back.png" />
     <Resource Include="View\Pictures\depart.jpg" />
     <Resource Include="View\Pictures\go_to_jail.jpg" />
@@ -167,9 +160,12 @@
     <SplashScreen Include="View\Pictures\welcome.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Model\Component\XmlData\XMLBoardCell.xml">
-      <SubType>Designer</SubType>
-    </Resource>
+    <Folder Include="Resources\Icon\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\XML\XMLBoardCell.xml" />
+    <Resource Include="Resources\XML\XMLChanceCard.xml" />
+    <Resource Include="Resources\XML\XMLCommunityCard.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

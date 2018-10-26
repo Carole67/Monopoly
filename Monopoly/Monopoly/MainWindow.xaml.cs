@@ -14,8 +14,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Monopoly.Handler;
-using Monopoly.Model.Component.Board;
-using Monopoly.Model.Component.Entity;
+using Monopoly.Model.Component.Cells;
+using Monopoly.Model.Component;
 using Monopoly.View.Component;
 
 namespace Monopoly
@@ -25,15 +25,12 @@ namespace Monopoly
     /// </summary>
     public partial class MainWindow : Window
     {
+        public GameManager GameManager { get; set; }
         public MainWindow()
         {
             InitializeComponent();
-            Game Monopoly = Game.Instance;
-            Console.WriteLine("...............DEBUT...............");
-            
-            Console.WriteLine("...............FIN...............");
-
         }
+        
 
         private void btnPlayAlone_Click(object sender, RoutedEventArgs e)
         {
