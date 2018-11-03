@@ -41,6 +41,16 @@ namespace Monopoly.View.Component
 
             DataContext = this;
         }
+
+        private void ButtonFechar_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+
+        private void GridBarraTitulo_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
     }
 
 

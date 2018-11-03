@@ -3,35 +3,97 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Monopoly.View.Component"
         mc:Ignorable="d"
-        Title="CustomizeWindow" Height="450" Width="800"
-        WindowStyle="None" ResizeMode="NoResize"
+        Title="CustomizeWindow" Height="450" Width="800"        
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
-        <TabControl x:Name="tabControl" HorizontalAlignment="Left" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" VerticalAlignment="Top" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}">
-            <TabItem Header="Joueur">
-                <Grid Background="#FFD8F2FF">
-                    <Label x:Name="lblNickname" Content="Pseudo : " HorizontalAlignment="Left" Height="25" Margin="62,100.04,0,0" VerticalAlignment="Top" Width="55"/>
-                    <TextBlock x:Name="nickname" Background="White" HorizontalAlignment="Left" Height="25" Margin="147,100.04,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100" />
-                    <Label x:Name="lblColor" Content="Couleur du pion : " HorizontalAlignment="Left" Height="25" Margin="17,150.04,0,0" VerticalAlignment="Top" Width="100"/>
-                    <ComboBox ItemsSource="{Binding ColorsList}" SelectedItem="{Binding SelectedColor}" Margin="147,150.04,1283,661">
-                        <ComboBox.ItemTemplate>
-                            <DataTemplate>
-                                <Grid Background="{Binding}">
-                                    <TextBlock Text="{Binding}"/>
-                                </Grid>
-                            </DataTemplate>
-                        </ComboBox.ItemTemplate>
-                    </ComboBox>
-                </Grid>
-            </TabItem>
-            <TabItem Header="Jeu">
-                <Grid Background="#FFDDFFD6"/>
-            </TabItem>
-            <TabItem Header="Plateau" >
-                <Grid Background="#FFFFEED6"/>
-            </TabItem>
-        </TabControl>
+       
+   <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCFCFCF">         
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Grid Grid.Row="0" HorizontalAlignment="Center" Width="580" Height="510">               
+                        <Grid Grid.Row="1" Margin="20 20 20 20">
+                            <Grid.OpacityMask>
+                                <VisualBrush Visual="{ Binding ElementName=BorderG2 }"/>
+                            </Grid.OpacityMask>
+                            <Border x:Name="BorderG2" CornerRadius="15" Background="#FF340051"/>
+                        </Grid>
+                    </Grid>
+                </Grid>    
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="LightGray" Offset="1"/>
+                    <GradientStop Color="#FFE6E6E6"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+            </Grid.Effect>
+
+            <StackPanel Grid.Row="0">
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <MaterialDesign:PackIcon Kind="People" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="JOUEURS" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <MaterialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="PLATEAU" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>  
+
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <MaterialDesign:PackIcon Kind="CardBulleted" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="CARTES" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+                
+                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                    <Grid Width="150">
+                        <MaterialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
+                        <TextBlock HorizontalAlignment="Center" Text="Options" FontFamily="Champagne &amp; Limousines"/>
+                    </Grid>
+                </Button>
+            </StackPanel>
+        </Grid>
+
+        <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarraTitulo_MouseDown">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
+                    <MaterialDesign:PackIcon Kind="Account"/>
+                </Button>
+                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFechar_Click">
+                    <MaterialDesign:PackIcon Kind="Power"/>
+                </Button>
+            </StackPanel>
+        </Grid>
     </Grid>
 </Window>

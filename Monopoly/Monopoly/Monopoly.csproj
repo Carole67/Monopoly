@@ -34,9 +34,19 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>man.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialDesignColors, Version=1.0.0.14576, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignColors.1.1.1\lib\net45\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=2.5.0.1205, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialDesignThemes.2.5.0.1205\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -49,6 +59,9 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
+    <Reference Include="WpfAnimatedGif, Version=1.4.17.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WpfAnimatedGif.1.4.17\lib\net\WpfAnimatedGif.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -142,6 +155,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -151,21 +165,47 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="View\Pictures\back.png" />
-    <Resource Include="View\Pictures\depart.jpg" />
-    <Resource Include="View\Pictures\go_to_jail.jpg" />
-    <Resource Include="View\Pictures\in_jail.jpg" />
-    <Resource Include="View\Pictures\parking.jpg" />
-    <Resource Include="View\Pictures\shut_down.png" />
-    <SplashScreen Include="View\Pictures\welcome.jpg" />
+    <Resource Include="Resources\Pictures\back.png" />
+    <Resource Include="Resources\Pictures\depart.jpg" />
+    <Resource Include="Resources\Pictures\go_to_jail.jpg" />
+    <Resource Include="Resources\Pictures\in_jail.jpg" />
+    <Resource Include="Resources\Pictures\parking.jpg" />
+    <Resource Include="Resources\Pictures\shut_down.png" />
+    <SplashScreen Include="Resources\Pictures\welcome.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\Icon\" />
+    <Resource Include="Resources\Pictures\dices.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\XML\XMLBoardCell.xml" />
     <Resource Include="Resources\XML\XMLChanceCard.xml" />
     <Resource Include="Resources\XML\XMLCommunityCard.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\motel.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\house.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\buy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\menu.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\welcome2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Pictures\wood.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="man.ico" />
+    <Resource Include="Resources\Pictures\house2.png" />
+    <Resource Include="Resources\Pictures\motel2.png" />
+    <Resource Include="Resources\Pictures\man.ico" />
+    <Content Include="Resources\Sounds\cha_ching.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

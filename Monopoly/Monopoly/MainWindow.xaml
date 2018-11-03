@@ -4,19 +4,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1800"
-        WindowStyle="None" ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="White">
+    <Window.Background>
+        <ImageBrush ImageSource="Resources/Pictures/menu.jpg"/>
+    </Window.Background>
     <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+        <Grid.Background>
+            <ImageBrush/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
-        <Image x:Name="image" Source="View/Pictures/welcome.jpg" HorizontalAlignment="Center" Height="100" Margin="75,-170,75,0" VerticalAlignment="Top" Width="265"/>
+
+        <Image x:Name="image" gif:ImageBehavior.RepeatBehavior="Forever" gif:ImageBehavior.AnimatedSource="Resources/Pictures/welcome2.gif" Source="Resources/Pictures/welcome2.gif" HorizontalAlignment="Center" Height="155" Margin="-10,-165,-20,0" VerticalAlignment="Top" Width="445" RenderTransformOrigin="0.395,0.406">
+
+        </Image>
         <Button x:Name="btnPlayAlone" Content="Joueur seul" Height="70" Margin="35,35,35,0" Width="270" VerticalAlignment="Top" Grid.Row="0" Click="btnPlayAlone_Click" />
         <Button x:Name="btnNetworkPlay" Content="Jouer en réseau" Height="70" Margin="35,35,35,0" Width="270" VerticalAlignment="Top" Grid.Row="1" Click="btnNetworkPlay_Click"/>
         <Button x:Name="btnCustomize" Content="Personnaliser" Height="70" Margin="35,35,35,0" Width="270" VerticalAlignment="Top" Grid.Row="2" Click="btnCustomize_Click" />

@@ -175,15 +175,5 @@ namespace Monopoly.View.Component
                 }
             }
         }
-
-        private void btnBack_Click(object sender, RoutedEventArgs e)
-        {
-            DialogResult = false;
-        }
-
-        private void btnShutDown_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Shutdown();
-        }
     }
 }
