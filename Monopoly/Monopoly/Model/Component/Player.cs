@@ -13,12 +13,14 @@ namespace Monopoly.Model.Component
     /// </summary>
     public class Player
     {
+        #region Constantes
         public const int WAITING = 0;
         public const int PLAYING = 1;
         public const int BUILD_HOTEL = 1;
         public const int BUILD_HOUSE = 2;
-        
-        #region variable
+        #endregion
+
+        #region Variables
         public int Id { get; set; }
         public string Name { get; set; }
         public int Status { get; set; }
@@ -29,9 +31,19 @@ namespace Monopoly.Model.Component
         public List<Property> ListOfPoperties { get; set; }
         #endregion 
 
-
         /// <summary>
-        /// Création d'un joueur
+        /// Création d'une instance de la classe
+        /// </summary>
+        public Player()
+        {
+            this.Id = 1;
+            this.Name = "";
+            this.Pawn = new Pawn();
+            this.ListOfCards = new List<Card>();
+            this.ListOfPoperties = new List<Property>();
+        }
+        /// <summary>
+        /// Création d'une instance de la classe
         /// </summary>
         /// <param name="id">Identifiant</param>
         /// <param name="name">Nom du joueur</param>
@@ -77,7 +89,7 @@ namespace Monopoly.Model.Component
                 switch (typeConstruction)
                 {
                     case BUILD_HOUSE:
-                        
+                    
                         break;
                     case BUILD_HOTEL:
                         break;

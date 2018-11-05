@@ -6,10 +6,10 @@
         xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Monopoly.View.Component"
         mc:Ignorable="d"
-        Title="CustomizeWindow" Height="450" Width="800"        
+        Title="CustomizeWindow" Height="1000" Width="1800"        
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
-       
-   <Grid>
+
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
@@ -20,24 +20,24 @@
         </Grid.RowDefinitions>
 
 
-        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCFCFCF">         
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="*"/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="*"/>
-                    </Grid.ColumnDefinitions>
-                    
-                    <Grid Grid.Row="0" HorizontalAlignment="Center" Width="580" Height="510">               
-                        <Grid Grid.Row="1" Margin="20 20 20 20">
-                            <Grid.OpacityMask>
-                                <VisualBrush Visual="{ Binding ElementName=BorderG2 }"/>
-                            </Grid.OpacityMask>
-                            <Border x:Name="BorderG2" CornerRadius="15" Background="#FF340051"/>
-                        </Grid>
+        <Grid Grid.Column="1" Grid.Row="1" Background="#FFCFCFCF">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Row="0" HorizontalAlignment="Center" Width="580" Height="510">
+                    <Grid Grid.Row="1" Margin="20 20 20 20">
+                        <Grid.OpacityMask>
+                            <VisualBrush Visual="{ Binding ElementName=BorderG2 }"/>
+                        </Grid.OpacityMask>
+                        <Border x:Name="BorderG2" CornerRadius="15" Background="#FF340051"/>
                     </Grid>
-                </Grid>    
+                </Grid>
+            </Grid>
         </Grid>
 
         <Grid Grid.Row="1">
@@ -67,7 +67,7 @@
                         <MaterialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="PLATEAU" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
-                </Button>  
+                </Button>
 
                 <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
@@ -75,7 +75,7 @@
                         <TextBlock HorizontalAlignment="Center" Text="CARTES" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
-                
+
                 <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
                     <Grid Width="150">
                         <MaterialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
@@ -86,7 +86,11 @@
         </Grid>
 
         <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarraTitulo_MouseDown">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="827*"/>
+                <ColumnDefinition Width="965*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="1">
                 <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
                     <MaterialDesign:PackIcon Kind="Account"/>
                 </Button>

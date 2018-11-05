@@ -93,8 +93,10 @@
     <Compile Include="Model\Component\Cards\CardMoveTo.cs" />
     <Compile Include="Model\Component\Cards\CardType.cs" />
     <Compile Include="Model\Component\Deck.cs" />
+    <Compile Include="Model\Component\Dice.cs" />
     <Compile Include="Model\Component\Game.cs" />
     <Compile Include="Model\Component\Player.cs" />
+    <Compile Include="Model\Tool\LocalRandom.cs" />
     <Compile Include="Model\Tool\Tools.cs" />
     <Compile Include="Settings\Config.cs" />
     <Compile Include="Handler\Entity\BoardHandler.cs" />
@@ -103,6 +105,7 @@
     <Compile Include="Handler\GameManager.cs" />
     <Compile Include="Service\Xml\XmlDataAccess.cs" />
     <Compile Include="Model\Component\Pawn.cs" />
+    <Compile Include="ViewModels\SinglePlayerViewModel.cs" />
     <Compile Include="View\Component\BoardWindow.xaml.cs">
       <DependentUpon>BoardWindow.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,12 @@
     </Compile>
     <Compile Include="View\Component\GameRules.xaml.cs">
       <DependentUpon>GameRules.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Component\SinglePlayerControl.xaml.cs">
+      <DependentUpon>SinglePlayerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Layout\SimpleLayout.xaml.cs">
+      <DependentUpon>SimpleLayout.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -135,6 +144,14 @@
     <Page Include="View\Component\GameRules.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Component\SinglePlayerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Layout\SimpleLayout.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -205,6 +222,12 @@
     <Resource Include="Resources\Pictures\house2.png" />
     <Resource Include="Resources\Pictures\motel2.png" />
     <Resource Include="Resources\Pictures\man.ico" />
+    <Resource Include="Resources\Pictures\Dices\dice1.png" />
+    <Resource Include="Resources\Pictures\Dices\dice2.png" />
+    <Resource Include="Resources\Pictures\Dices\dice3.png" />
+    <Resource Include="Resources\Pictures\Dices\dice4.png" />
+    <Resource Include="Resources\Pictures\Dices\dice5.png" />
+    <Resource Include="Resources\Pictures\Dices\dice6.png" />
     <Content Include="Resources\Sounds\cha_ching.wav" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

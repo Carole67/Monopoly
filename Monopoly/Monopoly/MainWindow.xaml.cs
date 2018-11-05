@@ -17,6 +17,7 @@ using Monopoly.Handler;
 using Monopoly.Model.Component.Cells;
 using Monopoly.Model.Component;
 using Monopoly.View.Component;
+using Monopoly.View.Layout;
 
 namespace Monopoly
 {
@@ -29,14 +30,16 @@ namespace Monopoly
         public MainWindow()
         {
             InitializeComponent();
+
         }
-        
+
 
         private void btnPlayAlone_Click(object sender, RoutedEventArgs e)
         {
-            BoardWindow board = new BoardWindow();
+            SimpleLayout SimpleLayout = new SimpleLayout();
+            SimpleLayout.ChangeDataContext(new SinglePlayerControl());
             this.Visibility = Visibility.Hidden;
-            board.Show();
+            SimpleLayout.Show(); ;
         }
 
         private void btnCustomize_Click(object sender, RoutedEventArgs e)
