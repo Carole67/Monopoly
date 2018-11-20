@@ -8,10 +8,13 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="1000" Width="1800"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="White">
+
+    
+    
     <Window.Background>
         <ImageBrush ImageSource="Resources/Pictures/menu.jpg"/>
     </Window.Background>
-    <Grid HorizontalAlignment="Center"  VerticalAlignment="Center" >
+    <Grid HorizontalAlignment="Center"  VerticalAlignment="Center">
         <Grid.Background>
             <ImageBrush/>
         </Grid.Background>
@@ -30,5 +33,10 @@
         <Button x:Name="btnCustomize" Content="Personnaliser" Height="70" Margin="35,35,35,0" Width="270" VerticalAlignment="Top" Grid.Row="2" Click="btnCustomize_Click" />
         <Button x:Name="btnRules" Content="Règles du jeu" Height="70" Margin="35,35,35,0" Width="270" VerticalAlignment="Top" Grid.Row="3" Click="btnRules_Click" />
         <Grid HorizontalAlignment="Left" Height="115" Margin="695,-295,-695,0" VerticalAlignment="Top" Width="415" />
+
+        <Frame x:Name="Content" Margin="5"/>
+        <StackPanel Tag="1" HorizontalAlignment="Left" Height="100" Margin="-553,245,0,-240" Grid.Row="3" VerticalAlignment="Top" Width="100">
+            <TextBox Height="23" TextWrapping="Wrap" Text="TOTO" />
+        </StackPanel>
     </Grid>
 </Window>

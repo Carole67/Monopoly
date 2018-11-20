@@ -14,28 +14,31 @@ namespace Monopoly.Model.Component.Cells
     [XmlInclude(typeof(TrainStation))]
     public class Property : Cell
     {
+        #region Constantes
+        [XmlIgnore]
+        public const int AVAILABLE_ON_SALE = 1;
+        [XmlIgnore]
+        public const int NOT_AVAILABLE_ON_SALE = 2;
+        #endregion
+
+        #region Variables
+        [XmlElement("Status")]
+        public int status;
         [XmlElement("PurchasePrice")]
         public int PurchasePrice { get; set; }
         [XmlElement("MortgagePrice")]
         public int MortgagePrice { get; set; }
-        [XmlElement("Status")]
-        public int Status { get; set; }
-        
-        [XmlIgnore]
-        public const int STATUS_SOLD = 1;
-        [XmlIgnore]
-        public const int STATUS_MONTAGAGE = 2;
-        [XmlIgnore]
-        public const int STATUS_AVAILABLE = 3;
-        
+        #endregion
+
+        #region Constructeurs
         /// <summary>
         /// Création d'une case "Propriete"
         /// </summary>
         public Property()
         {
-           Status = STATUS_AVAILABLE;
+           status = AVAILABLE_ON_SALE;
         }
-
+        #endregion
 
     }
 }

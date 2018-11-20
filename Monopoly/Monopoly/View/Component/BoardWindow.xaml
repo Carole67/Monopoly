@@ -129,14 +129,14 @@
                 <!--Statistics about players-->
                 <StackPanel Grid.Column="2">
                     <Label Content="TEST"/>
-                    <Label/>
+                    <Label Content=""/>
                 </StackPanel>
             </Grid>
 
             <!--Actions-->
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+            <StackPanel Grid.Row="1" Orientation="Horizontal">
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Text="Actions :" VerticalAlignment="Top" Foreground="Black" FontSize="16"/>
-                <Button x:Name="btnDice" Margin="10" ToolTip="Lancer les dés">
+                <Button x:Name="btnDice" Margin="10" ToolTip="Lancer les dés" >
                     <Image Source="../../Resources/Pictures/dices.png"/>
                 </Button>
                 <Button x:Name="btnLand" Margin="10" ToolTip="Acheter le terrain">

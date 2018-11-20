@@ -11,6 +11,7 @@ namespace Monopoly.Model.Component.Cells
     [XmlRoot("LandGroup")]
     public class LandGroup
     {
+        #region Variables
         [XmlElement("IdGroup")]
         public int IdGroup { get; set; }
         [XmlElement("Color")]
@@ -19,10 +20,17 @@ namespace Monopoly.Model.Component.Cells
         public int HotelPrice { get; set; }
         [XmlElement("HousePrice")]
         public int HousePrice { get; set; }
+        #endregion
 
+        #region Constructeur
         /// <summary>
         /// Création du goupe de terrains
         /// </summary>
-        public LandGroup() { }
+        public LandGroup()
+        {
+
+        }
+        #endregion
+
     }
 }

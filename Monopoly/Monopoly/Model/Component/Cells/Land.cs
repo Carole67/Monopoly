@@ -11,55 +11,69 @@ namespace Monopoly.Model.Component.Cells
     [XmlRoot("Land")]
     public class Land : Property
     {
+        #region Variables
         [XmlElement("LandGroup")]
         public LandGroup LandGroup { get; set; }
         [XmlArray("RantalList")]
         [XmlArrayItem("Rantal")]
         public List<int> RantalList { get; set; }
+        [XmlIgnore]
+        public int NbHotel { get; private set; }
+        [XmlIgnore]
+        public int NbHouse { get; private set; }
+        #endregion
 
-        [XmlIgnore]
-        private int _nbHouse;
-        [XmlIgnore]
-        private int _nbHotel;
+        #region Constructeur
         /// <summary>
         /// Création d'une case "Terrain"
         /// </summary>
         public Land()
         {
-            _nbHotel = 0;
-            _nbHouse = 0;
+            NbHouse = 0;
+            NbHotel = 0;
         }
+        #endregion
 
-
+        #region Méthode publique
         /// <summary>
-        /// Construit une maison/hotel sur le terrain
+        /// Construit une maison sur le terrain
         /// </summary>
-        public void BuildConstruction()
+        public void BuildHouse(int nbHouse)
         {
-            if (_nbHouse > 4)
+            if ((this.NbHouse + nbHouse) > 4)
             {
-                _nbHotel += 1;
+                BuildHotel();
             }
             else
             {
-                _nbHouse += 1;
+                this.NbHouse += nbHouse;
             }
         }
 
         /// <summary>
-        /// Nombre d'hotel sur le terrain
+        /// Construit un hotel sur le terrain
         /// </summary>
-        public int NbHotel
+        public void BuildHotel()
         {
-            get { return _nbHotel; }
+            this.NbHouse = 0;
+            this.NbHotel = 1;
         }
 
         /// <summary>
-        /// Nombre de maison sur le terrain
+        /// Récupère le prix du loyer
         /// </summary>
-        public int NbHouse
+        /// <returns></returns>
+        public int GetRental()
         {
-            get { return _nbHouse; }
+            if (NbHotel > 0)
+            {
+                return RantalList[NbHotel + 4];
+            }
+            else
+            {
+                return RantalList[NbHouse];
+            }
         }
+        #endregion
     }
 }

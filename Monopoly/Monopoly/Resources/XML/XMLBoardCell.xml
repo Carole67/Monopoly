@@ -7,9 +7,9 @@
   <Cell xsi:type="Land">
     <Id>2</Id>
     <Title>BOULEVARD DE BELLEVILLE</Title>
+    <Status>0</Status>
     <PurchasePrice>60</PurchasePrice>
     <MortgagePrice>30</MortgagePrice>
-    <Status>0</Status>
     <LandGroup>
       <IdGroup>1</IdGroup>
       <Color>F5A9E1</Color>
@@ -34,9 +34,9 @@
   <Cell xsi:type="Land">
     <Id>4</Id>
     <Title>RUE LECOURBE</Title>
+    <Status>0</Status>
     <PurchasePrice>60</PurchasePrice>
     <MortgagePrice>30</MortgagePrice>
-    <Status>0</Status>
     <LandGroup>
       <IdGroup>1</IdGroup>
       <Color>F5A9E1</Color>

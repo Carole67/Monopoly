@@ -19,20 +19,19 @@ namespace Monopoly.Model.Component
         public const int BUILD_HOTEL = 1;
         public const int BUILD_HOUSE = 2;
         #endregion
-
         #region Variables
         public int Id { get; set; }
         public string Name { get; set; }
         public int Status { get; set; }
         public bool InJail { get; set; }
-        public int Position { get; set; }
+        public int Position { get; private set; }
         public Pawn Pawn { get; set; }
-        public List<Card> ListOfCards { get; set; }
-        public List<Property> ListOfPoperties { get; set; }
-        #endregion 
-
+        public List<Card> ListOfCards { get; private set; }
+        public List<Property> ListOfPoperties { get; private set; }
+        #endregion
+        #region Constructeurs
         /// <summary>
-        /// Création d'une instance de la classe
+        /// Crée une instance de la classe
         /// </summary>
         public Player()
         {
@@ -42,8 +41,9 @@ namespace Monopoly.Model.Component
             this.ListOfCards = new List<Card>();
             this.ListOfPoperties = new List<Property>();
         }
+
         /// <summary>
-        /// Création d'une instance de la classe
+        /// Crée une instance de la classe
         /// </summary>
         /// <param name="id">Identifiant</param>
         /// <param name="name">Nom du joueur</param>
@@ -56,80 +56,62 @@ namespace Monopoly.Model.Component
             this.ListOfCards = new List<Card>();
             this.ListOfPoperties = new List<Property>();
         }
-       
+        #endregion
+        #region Methodes publique
         /// <summary>
-        /// Donne de l'argent à un autre joueur
+        /// Ajoute une propriété à sa liste de biens
         /// </summary>
-        /// <param name="p"></param>
-        /// <param name="money"></param>
-        public void GiveMoneyTo(Player player, int money)
+        /// <param name="property">Porpriete</param>
+        public void AddPorperty(Property p)
         {
-            //todo
+            this.ListOfPoperties.Add(p);
         }
 
         /// <summary>
-        /// Donne une properete à un joueur
+        /// Enlève une propriété à sa la liste de bien
         /// </summary>
-        /// <param name="player"></param>
-        /// <param name="property"></param>
-        public void GivePropertyTo(Player player, Property property)
+        /// <param name="p">Propriété</param>
+        public void RemoveProperty(Property p)
         {
-            //todo
+            this.ListOfPoperties.Remove(p);
         }
 
         /// <summary>
-        /// Construit une Maison/Hotel sur une propriete
+        /// Ajoute une carte à sa liste de cartes
         /// </summary>
-        /// <param name="p">Joueur</param>
-        /// <param name="typeConstruction">Type de construction</param>
-        public void BuildConstruction(Property p, int typeConstruction)
+        /// <param name="c">Carte</param>
+        public void AddCard(Card c)
         {
-            if(PlayerOwnProperty(p))
-            {
-                switch (typeConstruction)
-                {
-                    case BUILD_HOUSE:
-                    
-                        break;
-                    case BUILD_HOTEL:
-                        break;
-                    default:
-                        break;
-                }
-            }
-            
-            
+            this.ListOfCards.Add(c);
         }
 
         /// <summary>
-        /// Verifie que le joueur possède bien la propriété
+        /// Enlève une carte à sa liste de cartes
         /// </summary>
-        /// <param name="property">Propriete</param>
-        /// <returns>Boolean</returns>
-        private bool PlayerOwnProperty(Property property)
+        /// <param name="c">Carte</param>
+        public void RemoveCard(Card c)
         {
-            Predicate<Property> findProperty = (Property p) => { return p.Id == property.Id; };
-            return (ListOfPoperties.Find(findProperty) != null);
-
+            this.ListOfCards.Remove(c);
         }
-
         /// <summary>
-        /// Deplace le joueurs de N case
+        /// Deplace le joueurs à la position cible
         /// </summary>
         /// <param name="nb">Nombre de deplacement</param>
-        public void MoveTo(int nb)
+        public void MoveTo(int position)
         {
-            this.Position = (this.Position + nb) % Board.Instance.ListCell.Count;
+            this.Position = position;
         }
 
         /// <summary>
-        /// Deplace le joueur sur une case precice
+        /// Deplace le joueur sur une case cible
         /// </summary>
         /// <param name="cell">Case du plateau</param>
         public void MoveTo(Cell cell)
         {
             this.Position = cell.Id;
         }
+        #endregion
+
 
     }
 }
