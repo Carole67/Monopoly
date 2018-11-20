@@ -33,5 +33,10 @@ namespace Monopoly.Model.Component
             this.ColorValue = ( (colorIndex < SettingColor.PawnColors.Count) && (colorIndex > 0 )) ? SettingColor.PawnColors[colorIndex] : "#000";
         }
 
+        public Pawn(string colorvalue)
+        {
+            this.ColorValue = colorvalue;
+        }
+
     }
 }

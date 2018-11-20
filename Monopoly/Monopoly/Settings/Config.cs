@@ -20,8 +20,9 @@ namespace Monopoly.Settings
 
         
         // Setting game
-        public static int NUMBER_OF_HOTEL = 16;
-        public static int NUMBER_OF_HOUSE = 32;
+        public static int NUMBER_MAX_OF_HOTEL = 16;
+        public static int NUMBER_MAX_OF_HOUSE = 32;
+        public static int INITIAL_BANCK_BALANCE = 1500;
     }
 
     /// <summary>
@@ -36,7 +37,7 @@ namespace Monopoly.Settings
             "#9C27B0",
             "#673AB7",
             "#3F51B5",
-            "2196F3" ,
+            "#2196F3",
             "#0319F4",
             "#00BCD4",
             "#009688",

@@ -22,7 +22,6 @@ namespace Monopoly.Model.Component.Cells
         public int Id { get; set; }
         [XmlElement("Title")]
         public string Title { get; set; }
-                
 
         /// <summary>
         /// Création d'une cell

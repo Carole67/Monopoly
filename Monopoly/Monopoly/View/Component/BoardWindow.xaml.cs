@@ -1,6 +1,8 @@
 ﻿using Monopoly.Handler;
 using Monopoly.Model.Component.Cells;
+using Monopoly.Model.Component;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -15,12 +17,24 @@ namespace Monopoly.View.Component
     /// </summary>
     public partial class BoardWindow : Window
     {
+        public GameManager gameManager;
+        public List<Player> players;
         public BoardWindow()
         {
             InitializeComponent();
+            this.gameManager = GameManager.Instance;
+            players = gameManager.playerHandler.ListOfPlayer;
+            Console.WriteLine("Liste des utilisateurs présent dans la partie : ");
+
+            foreach(Player p in players)
+            {
+                Console.WriteLine(p.Id + "-" + p.Name + '-' + p.Pawn.ColorValue);
+            }
             FillCells();
         }
 
+
+        #region Creation du Plateau
         private void FillCells()
         {
             int row = -1;
@@ -226,6 +240,7 @@ namespace Monopoly.View.Component
             }
         }
 
+
         private void FillCardLand(int tag)
         {
             var cell = GameManager.Instance.boardHandler.Board.ListCell.ElementAt(tag);
@@ -323,6 +338,9 @@ namespace Monopoly.View.Component
                 ell.Fill = Brushes.Gray;
             }
         }*/
+
+        #endregion
+       
 
     }
 }
