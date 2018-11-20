@@ -105,6 +105,7 @@
     <Compile Include="Handler\GameManager.cs" />
     <Compile Include="Service\Xml\XmlDataAccess.cs" />
     <Compile Include="Model\Component\Pawn.cs" />
+    <Compile Include="ViewModels\BoardViewModel.cs" />
     <Compile Include="ViewModels\SinglePlayerViewModel.cs" />
     <Compile Include="View\Component\BoardWindow.xaml.cs">
       <DependentUpon>BoardWindow.xaml</DependentUpon>

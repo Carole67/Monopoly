@@ -6,7 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:gif="http://wpfanimatedgif.codeplex.com"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1000" Width="1800"
+        Title="Menu" Height="1000" Width="1800"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" Foreground="White">
     <Window.Background>
         <ImageBrush ImageSource="Resources/Pictures/menu.jpg"/>

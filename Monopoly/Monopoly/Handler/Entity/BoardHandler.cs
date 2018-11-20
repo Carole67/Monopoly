@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Monopoly.Model.Component;
 using Monopoly.Settings;
 using Monopoly.Service.Xml;
+using Monopoly.Model.Component.Cells;
 
 namespace Monopoly.Handler.Entity
 {
@@ -51,6 +52,17 @@ namespace Monopoly.Handler.Entity
         {
             get { return this._board; }
             set { this._board = value; }
+        }
+
+        public string getColor(Cell c)
+        {
+            if (c is Land)
+            {
+                Land terrain = (Land)c;
+                return terrain.LandGroup.Color;
+            }
+            return "#FFF";               
+
         }
     }
 }

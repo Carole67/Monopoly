@@ -30,36 +30,31 @@ namespace Monopoly
         public MainWindow()
         {
             InitializeComponent();
-
+            GameManager = GameManager.Instance;            
         }
-
 
         private void btnPlayAlone_Click(object sender, RoutedEventArgs e)
         {
             SimpleLayout SimpleLayout = new SimpleLayout();
             SimpleLayout.ChangeDataContext(new SinglePlayerControl());
-            this.Visibility = Visibility.Hidden;
             SimpleLayout.Show(); ;
         }
 
         private void btnCustomize_Click(object sender, RoutedEventArgs e)
         {
             CustomizeWindow custom = new CustomizeWindow();
-            this.Visibility = Visibility.Hidden;
             custom.Show();
         }
 
         private void btnNetworkPlay_Click(object sender, RoutedEventArgs e)
         {
             BoardWindow board = new BoardWindow();
-            this.Visibility = Visibility.Hidden;
             board.Show();
         }
 
         private void btnRules_Click(object sender, RoutedEventArgs e)
         {
             GameRules rules = new GameRules();
-            this.Visibility = Visibility.Hidden;
             rules.Show();
         }
 

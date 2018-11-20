@@ -6,7 +6,7 @@
         xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:local="clr-namespace:Monopoly.View.Component"
         mc:Ignorable="d"
-        Title="CustomizeWindow" Height="1000" Width="1800"        
+        Title="Personnalisation" Height="1000" Width="1800"        
         WindowStartupLocation="CenterScreen" WindowState="Maximized">
 
     <Grid>
@@ -14,11 +14,6 @@
             <ColumnDefinition Width="200"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
 
         <Grid Grid.Column="1" Grid.Row="1" Background="#FFCFCFCF">
             <Grid>
@@ -29,15 +24,17 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Row="0" HorizontalAlignment="Center" Width="580" Height="510">
-                    <Grid Grid.Row="1" Margin="20 20 20 20">
-                        <Grid.OpacityMask>
-                            <VisualBrush Visual="{ Binding ElementName=BorderG2 }"/>
-                        </Grid.OpacityMask>
-                        <Border x:Name="BorderG2" CornerRadius="15" Background="#FF340051"/>
-                    </Grid>
+                <Grid Grid.Row="0" Margin="20">
+                    <Grid.OpacityMask>
+                        <VisualBrush Visual="{ Binding ElementName=BorderG2 }"/>
+                    </Grid.OpacityMask>
+                    <Border x:Name="BorderG2" CornerRadius="15" Background="{DynamicResource MaterialDesignPaper}">
+                        <Button x:Name="button_Copy1" Content="Button" Height="Auto" Margin="230,250,1173.6,630.4"/>
+                    
+                    </Border>
                 </Grid>
             </Grid>
+
         </Grid>
 
         <Grid Grid.Row="1">
@@ -51,32 +48,32 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.Effect>
-                <DropShadowEffect BlurRadius="20" Color="#FFDEDEDE" RenderingBias="Quality" ShadowDepth="1"/>
+                <DropShadowEffect BlurRadius="20" RenderingBias="Quality" ShadowDepth="1"/>
             </Grid.Effect>
 
             <StackPanel Grid.Row="0">
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Margin="10">
                     <Grid Width="150">
                         <MaterialDesign:PackIcon Kind="People" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="JOUEURS" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Margin="10">
                     <Grid Width="150">
                         <MaterialDesign:PackIcon Kind="ViewDashboard" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="PLATEAU" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Margin="10">
                     <Grid Width="150">
                         <MaterialDesign:PackIcon Kind="CardBulleted" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="CARTES" FontFamily="Champagne &amp; Limousines"/>
                     </Grid>
                 </Button>
 
-                <Button Margin="10" Background="#FF8522BD" BorderBrush="#FF8522BD">
+                <Button Margin="10">
                     <Grid Width="150">
                         <MaterialDesign:PackIcon Kind="Settings" VerticalAlignment="Center"/>
                         <TextBlock HorizontalAlignment="Center" Text="Options" FontFamily="Champagne &amp; Limousines"/>
@@ -85,19 +82,5 @@
             </StackPanel>
         </Grid>
 
-        <Grid x:Name="GridBarraTitulo" Grid.ColumnSpan="2" Background="#FF8522BD" MouseDown="GridBarraTitulo_MouseDown">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="827*"/>
-                <ColumnDefinition Width="965*"/>
-            </Grid.ColumnDefinitions>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,10,0" Grid.Column="1">
-                <Button Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White">
-                    <MaterialDesign:PackIcon Kind="Account"/>
-                </Button>
-                <Button x:Name="ButtonFechar" Style="{StaticResource MaterialDesignFloatingActionMiniAccentButton}" Width="25" Height="25" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="White" Click="ButtonFechar_Click">
-                    <MaterialDesign:PackIcon Kind="Power"/>
-                </Button>
-            </StackPanel>
-        </Grid>
     </Grid>
 </Window>

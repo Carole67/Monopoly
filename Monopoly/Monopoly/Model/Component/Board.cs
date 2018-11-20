@@ -39,8 +39,12 @@ namespace Monopoly.Model.Component
                 }
                 return _instance;
             }
+        }    
+
+        public Cell GetCell(int index)
+        {
+            Predicate<Cell> filtreCell = (Cell c) => { return c.Id == index; };
+            return ListCell.Find(filtreCell);
         }
-
-
     }
 }

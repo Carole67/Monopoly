@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Monopoly.Handler;
+using Monopoly.Model.Component.Cells;
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 namespace Monopoly.View.Component
@@ -25,11 +21,10 @@ namespace Monopoly.View.Component
             FillCells();
         }
 
-
         private void FillCells()
         {
             int row = -1;
-
+            BrushConverter bc = new BrushConverter();
 
             foreach (RowDefinition r in Board.RowDefinitions)
             {
@@ -52,51 +47,73 @@ namespace Monopoly.View.Component
                         {
                             ColumnDefinition gridColumn = new ColumnDefinition();
                             gridColumn.Width = new GridLength(1, GridUnitType.Star);
-
-                            if (row == 0)
-                            {
-                                grid.Tag = tag + i;
-                            }
-                            else
-                            {
-                                tag = 9;
-                                grid.Tag = tag - i;
-                            }
-                                
-                            grid.Background = Brushes.Black;
                             grid.ColumnDefinitions.Add(gridColumn);
 
                             Grid gridInside = new Grid();
-                            gridInside.Background = Brushes.LightGreen;
                             Grid.SetColumn(gridInside, i);
                             grid.Children.Add(gridInside);
 
-                            for (int j = 0; j < 3; j++)
+
+
+
+                            for (int j = 0; j < 2; j++)
                             {
                                 RowDefinition rowInside = new RowDefinition();
+                                TextBlock lbl = new TextBlock();
+                                lbl.TextWrapping = TextWrapping.WrapWithOverflow;
+                                ToolTip t = (ToolTip)Land.ToolTip;
+                                lbl.ToolTip = t;
+
+                                if (row == 0)
+                                {
+                                    lbl.Tag = tag + i;
+                                }
+                                else
+                                {
+                                    tag = 9;
+                                    lbl.Tag = tag - i;
+                                }
 
                                 if (row == 0)
                                 {
                                     if (j == 0)
-                                        rowInside.Height = new GridLength(2, GridUnitType.Star);
+                                    {
+                                        rowInside.Height = new GridLength(3, GridUnitType.Star);
+                                        lbl.Text = GameManager.Instance.boardHandler.Board.ListCell.ElementAt((int)lbl.Tag).Title.ToLower();
+                                    }
                                     else
+                                    {
                                         rowInside.Height = new GridLength(1, GridUnitType.Star);
+                                        Cell mycell = GameManager.Instance.boardHandler.Board.GetCell((int)lbl.Tag);
+                                        if (mycell.GetType() == typeof(Land))
+                                        {
+                                            lbl.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(mycell));
+                                        }
+                                        else
+                                        {
+                                            lbl.Background = Brushes.Transparent;
+                                        }
+
+                                    }
                                 }
                                 else
                                 {
-                                    if (j == 2)
-                                        rowInside.Height = new GridLength(2, GridUnitType.Star);
-                                    else
-                                        rowInside.Height = new GridLength(1, GridUnitType.Star);
-                                }
+                                    if (j == 1)
+                                    {
+                                        rowInside.Height = new GridLength(3, GridUnitType.Star);
+                                        lbl.Text = GameManager.Instance.boardHandler.Board.ListCell.ElementAt((int)lbl.Tag).Title.ToLower();
 
+                                    }
+                                    else
+                                    {
+                                        rowInside.Height = new GridLength(1, GridUnitType.Star);
+                                        lbl.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(GameManager.Instance.boardHandler.Board.GetCell((int)lbl.Tag)));
+                                    }
+
+                                }
 
                                 gridInside.RowDefinitions.Add(rowInside);
 
-                                Label lbl = new Label();
-                                lbl.Content = grid.Tag;
-                                lbl.HorizontalAlignment = HorizontalAlignment.Center;
-                                lbl.VerticalAlignment = VerticalAlignment.Center;
                                 Grid.SetRow(lbl, j);
                                 gridInside.Children.Add(lbl);
                             }
@@ -113,7 +130,6 @@ namespace Monopoly.View.Component
                     else if (col == 0 || col == 2)
                     {
                         Grid grid = new Grid();
-                        grid.Background = Brushes.Black;
                         Grid.SetColumn(grid, col);
                         Grid.SetRow(grid, 1);
 
@@ -122,50 +138,84 @@ namespace Monopoly.View.Component
                         {
                             RowDefinition gridRow = new RowDefinition();
                             gridRow.Height = new GridLength(1, GridUnitType.Star);
-                            
-                            if (col == 0)
-                            {
-                                grid.Tag = tag - i;
-                            }
-                            else
-                            {
-                                tag = 31;
-                                grid.Tag = tag + i;
-                            }
-
                             grid.RowDefinitions.Add(gridRow);
 
                             Grid gridInside = new Grid();
-                            gridInside.Background = Brushes.LightGreen;
                             Grid.SetRow(gridInside, i);
                             grid.Children.Add(gridInside);
 
-                            for (int j = 0; j < 3; j++)
+                            for (int j = 0; j < 2; j++)
                             {
                                 ColumnDefinition colInside = new ColumnDefinition();
+                                TextBlock lbl = new TextBlock();
+                                lbl.TextWrapping = TextWrapping.WrapWithOverflow;
+                                lbl.TextAlignment = TextAlignment.Center;
+
+                                if (col == 0)
+                                {
+                                    lbl.Tag = tag - i;
+                                }
+                                else
+                                {
+                                    tag = 31;
+                                    lbl.Tag = tag + i;
+                                }
+
+                                //ToolTip t = (ToolTip)Land.ToolTip;
+                                ToolTip t = new ToolTip();
+                                lbl.ToolTip = t;
+                                t.Opened +=  new RoutedEventHandler(whenToolTipOpens);
+                                //t.Closed +=  new RoutedEventHandler(whenToolTipCloses);
+                                
+
+                               FillCardLand((int)lbl.Tag);
 
                                 if (col == 0)
                                 {
                                     if (j == 0)
-                                        colInside.Width = new GridLength(2, GridUnitType.Star);
+                                    {
+                                        colInside.Width = new GridLength(4, GridUnitType.Star);
+                                        lbl.Text = GameManager.Instance.boardHandler.Board.ListCell.ElementAt((int)lbl.Tag).Title;
+                                        lbl.Background = Brushes.White;
+                                    }
                                     else
+                                    {
                                         colInside.Width = new GridLength(1, GridUnitType.Star);
+                                        //lbl.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(GameManager.Instance.boardHandler.Board.GetCell((int)lbl.Tag)));
+                                        Cell mycell = GameManager.Instance.boardHandler.Board.GetCell((int)lbl.Tag);
+                                        if (mycell.GetType() == typeof(Land))
+                                        {
+                                            lbl.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(mycell));
+                                        }
+                                        else
+                                        {
+                                            lbl.Background = Brushes.Transparent;
+                                        }
+                                    }
+
                                 }
                                 else
                                 {
-                                    if (j == 2)
-                                        colInside.Width = new GridLength(2, GridUnitType.Star);
+                                    if (j == 1)
+                                    {
+                                        colInside.Width = new GridLength(3, GridUnitType.Star);
+                                        lbl.Text = GameManager.Instance.boardHandler.Board.ListCell.ElementAt((int)lbl.Tag).Title;
+                                        lbl.Background = Brushes.White;
+                                    }
                                     else
+                                    {
                                         colInside.Width = new GridLength(1, GridUnitType.Star);
+                                        lbl.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(GameManager.Instance.boardHandler.Board.GetCell((int)lbl.Tag)));
+                                    }
                                 }
 
 
                                 gridInside.ColumnDefinitions.Add(colInside);
 
-                                Label lbl = new Label();
-                                lbl.Content = grid.Tag;
-                                lbl.HorizontalAlignment = HorizontalAlignment.Center;
-                                lbl.VerticalAlignment = VerticalAlignment.Center;
+
+
+                                //lbl.HorizontalAlignment = HorizontalAlignment.Center;
+                                //lbl.VerticalAlignment = VerticalAlignment.Center;
                                 Grid.SetColumn(lbl, j);
                                 gridInside.Children.Add(lbl);
                             }
@@ -175,5 +225,104 @@ namespace Monopoly.View.Component
                 }
             }
         }
+
+        private void FillCardLand(int tag)
+        {
+            var cell = GameManager.Instance.boardHandler.Board.ListCell.ElementAt(tag);
+            string type = cell.GetType().Name;
+            
+            switch(type)
+            {
+                case "DrawCard":
+                    break;
+                case "GoToJail":
+                    break;
+                case "Jail":                 
+                    break;
+                case "Land":
+                    Land l = (Land)GameManager.Instance.boardHandler.Board.ListCell.ElementAt(tag);               
+                    lblBuyingPriceValue2.Content = l.PurchasePrice;
+                    lblLandValue2.Content = l.RantalList[0];
+                    lblHouse1Value2.Content = l.RantalList[1];
+                    lblHouse2Value2.Content = l.RantalList[2];
+                    lblHouse3Value2.Content = l.RantalList[3];
+                    lblHouse4Value2.Content = l.RantalList[4];
+                    lblMotelValue2.Content = l.RantalList[5];
+                    lblMortgage2.Content = l.MortgagePrice;                   
+                    break;               
+                case "Parking":
+                    break;
+                case "Property":
+                    break;
+                case "TrainStation":
+                    break;
+                case "PublicService":
+                    break;
+                case "Tax":
+                    break;
+                
+                default:
+                    LandTitle.Content = cell.Title;
+                    break;
+            }
+            
+
+        }
+
+        /*private void TextBlock_MouseHover(object sender, EventArgs e)
+        { 
+            ToolTip t = new ToolTip();
+            t.Content = (ToolTip)Land.ToolTip;
+            
+            //LandTitle.Background = (Brush)bc.ConvertFrom(GameManager.Instance.boardHandler.getColor(GameManager.Instance.boardHandler.Board.GetCell((int)grid.Tag)));
+
+            //lblBuyingPrice. 
+
+            //System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            //ToolTip1.SetToolTip(this.button1, this.button1.Text);
+        }*/
+
+
+        void whenToolTipOpens(object sender, RoutedEventArgs e)
+        {
+            if (sender.GetType().FullName.Equals("System.Windows.Controls.ToolTip"))
+            {
+                string s = sender.GetType().FullName;
+                ToolTip t = (ToolTip)sender;
+                Popup p = (Popup)t.Parent;
+                t = (ToolTip)Land.ToolTip;
+                //int val = (int) (sender as TextBlock).Tag; 
+                //ell = (Ellipse)p.PlacementTarget;
+                //ell.Fill = Brushes.Blue;
+            }
+        }
+        
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            MessageBoxResult dialog = MessageBox.Show("Voulez-vous vraiment quitter la partie ?", "Quitter la partie", MessageBoxButton.YesNo);
+   
+            if (dialog == MessageBoxResult.No)
+                e.Cancel = true;           
+        }
+
+        /*void whenToolTipCloses(object sender, RoutedEventArgs e)
+        {
+            Ellipse ell = new Ellipse();
+            if (sender.GetType().FullName.Equals(
+                              "System.Windows.Shapes.Ellipse"))
+            {
+                ell = (Ellipse)sender;
+                ell.Fill = Brushes.Gray;
+            }
+            else if (sender.GetType().FullName.Equals(
+                                   "System.Windows.Controls.ToolTip"))
+            {
+                ToolTip t = (ToolTip)sender;
+                Popup p = (Popup)t.Parent;
+                ell = (Ellipse)p.PlacementTarget;
+                ell.Fill = Brushes.Gray;
+            }
+        }*/
+
     }
 }

@@ -3,12 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Monopoly.View.Component"
-        xmlns:MaterialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" 
+        Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}"
         Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenWidthKey}}"
-        Title="BoardWindow"  WindowState="Maximized" 
+        Title="Monopoly" WindowState="Maximized"
         WindowStartupLocation="CenterOwner"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
@@ -25,7 +23,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Board (left side)-->
-        <Grid Grid.Column="0" Name="Board" Margin="10,10,0,10" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeight}}" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" HorizontalAlignment="Left" ScrollViewer.VerticalScrollBarVisibility="Disabled">
+        <Grid Grid.Column="0" Name="Board" Background="Beige" Margin="10,10,0,10" Height="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeight}}" Width="{DynamicResource {x:Static SystemParameters.PrimaryScreenHeightKey}}" HorizontalAlignment="Left" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="8*"/>
@@ -36,6 +34,63 @@
                 <RowDefinition Height="8*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
+
+            <Label Name="Land">
+                <Label.ToolTip>
+                    <ToolTip>
+                    <Grid Grid.Column="0" HorizontalAlignment="Stretch" Height="Auto" Width="Auto" Margin="10" Background="White">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="2*"/>
+                            <RowDefinition Height="9*"/>
+                        </Grid.RowDefinitions>
+
+                            <Label x:Name="LandTitle" Grid.Row="0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+
+                        <Grid Grid.Row="1" Margin="10" >
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="2*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Label x:Name="lblOwner2" Grid.Row="0" HorizontalAlignment="Left" Content="Propriétaire :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblOwnerValue2" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblBuyingPrice2" Grid.Row="1" HorizontalAlignment="Left" Content="Prix d'achat :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblBuyingPriceValue2" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblRent2" Grid.Row="2" HorizontalAlignment="Left" Content="Loyers :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblLand2" Grid.Row="3" HorizontalAlignment="Left" Content="- Terrain nu : " VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblLandValue2" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblHouse12" Grid.Row="4" HorizontalAlignment="Left" Content="- Avec 1 maison :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblHouse1Value2" Grid.Row="4" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblHouse22" Grid.Row="5" HorizontalAlignment="Left" Content="- Avec 2 maisons :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblHouse2Value2" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblHouse32" Grid.Row="6" HorizontalAlignment="Left" Content="- Avec 3 maisons :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblHouse3Value2" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblHouse42" Grid.Row="7" HorizontalAlignment="Left" Content="- Avec 4 maisons :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblHouse4Value2" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblMotel2" Grid.Row="8" HorizontalAlignment="Left" Content="- Avec hôtel :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblMotelValue2" Grid.Row="8" Grid.Column="1" HorizontalAlignment="Left"/>
+                            <Label x:Name="lblMortgage2" Grid.Row="9" HorizontalAlignment="Left" Content="Valeur hypothécaire :" VerticalAlignment="Top" Foreground="Black"/>
+                            <Label x:Name="lblMortgageValue2" Grid.Row="9" Grid.Column="1" HorizontalAlignment="Left"/>
+                        </Grid>
+
+                        <Border BorderThickness="2" BorderBrush="Black" />
+                        <Border BorderThickness="2" BorderBrush="Black" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+                    </Grid>
+                    </ToolTip>
+                </Label.ToolTip>
+            </Label>
         </Grid>
 
         <!--Right side-->
@@ -85,7 +140,6 @@
                         <Label x:Name="lblBuyingPrice" Grid.Row="1" HorizontalAlignment="Left" Content="Prix d'achat :" VerticalAlignment="Top" Foreground="Black"/>
                         <Label x:Name="lblBuyingPriceValue" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left"/>
                         <Label x:Name="lblRent" Grid.Row="2" HorizontalAlignment="Left" Content="Loyers :" VerticalAlignment="Top" Foreground="Black"/>
-                        <Label x:Name="lblRentValue" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left"/>
                         <Label x:Name="lblLand" Grid.Row="3" HorizontalAlignment="Left" Content="- Terrain nu : " VerticalAlignment="Top" Foreground="Black"/>
                         <Label x:Name="lblLandValue" Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left"/>
                         <Label x:Name="lblHouse1" Grid.Row="4" HorizontalAlignment="Left" Content="- Avec 1 maison :" VerticalAlignment="Top" Foreground="Black"/>
@@ -106,8 +160,8 @@
                     <Border BorderThickness="2" BorderBrush="Black" Grid.ColumnSpan="2" Grid.RowSpan="2" />
                 </Grid>
 
-                <!--Properties-->
-                <StackPanel Grid.Column="1">
+        <!--Properties-->
+        <StackPanel Grid.Column="1">
                     <Label Content="Propriétés :"/>
                     <Label>
                         <Image Source="../../Resources/Pictures/house2.png" Height="45.6" Width="52.467" VerticalAlignment="Center" HorizontalAlignment="Right"/>
@@ -126,15 +180,15 @@
                     </Label>
                 </StackPanel>
 
-                <!--Statistics about players-->
-                <StackPanel Grid.Column="2">
+        <!--Statistics about players-->
+        <StackPanel Grid.Column="2">
                     <Label Content="TEST"/>
                     <Label/>
                 </StackPanel>
             </Grid>
 
-            <!--Actions-->
-            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+    <!--Actions-->
+    <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Center" Text="Actions :" VerticalAlignment="Top" Foreground="Black" FontSize="16"/>
                 <Button x:Name="btnDice" Margin="10" ToolTip="Lancer les dés">
                     <Image Source="../../Resources/Pictures/dices.png"/>
