@@ -108,11 +108,6 @@
     <Compile Include="Handler\GameManager.cs" />
     <Compile Include="Service\Xml\XmlDataAccess.cs" />
     <Compile Include="Model\Component\Pawn.cs" />
-<<<<<<< HEAD
-    <Compile Include="ViewModels\BoardViewModel.cs" />
-    <Compile Include="ViewModels\SinglePlayerViewModel.cs" />
-=======
->>>>>>> 3ba12f5fd939e80abba9dd34792b458802145c0a
     <Compile Include="View\Component\BoardWindow.xaml.cs">
       <DependentUpon>BoardWindow.xaml</DependentUpon>
     </Compile>
@@ -220,7 +215,9 @@
   <ItemGroup>
     <Resource Include="Resources\Pictures\wood.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="man.ico" />
     <Resource Include="Resources\Pictures\house2.png" />
